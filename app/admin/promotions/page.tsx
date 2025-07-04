@@ -9,7 +9,7 @@ import { Edit, Trash2, Plus } from "lucide-react"
 import { useToast } from "@/components/ui/use-toast"
 import { PromotionForm } from "./PromotionForm"
 
-const API_BASE_URL = "http://localhost:5000/api"
+const API_BASE_URL = "https://arister.onrender.com/api"
 
 interface Promotion {
   _id: string
