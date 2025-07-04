@@ -22,7 +22,7 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://localhost:5000/api/:path*', // Proxy to Express backend
+        destination: 'https://arister.onrender.com/api/:path*', // Proxy to Express backend
       },
     ];
   },
