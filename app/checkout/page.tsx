@@ -56,7 +56,8 @@ export default function CheckoutPage() {
 
   const [addresses, setAddresses] = useState<Address[]>([]);
   const [selectedAddress, setSelectedAddress] = useState<Address | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Only for order placement and navigation
+  const [isAddressLoading, setIsAddressLoading] = useState(false); // For address form
   const [isNavigating, setIsNavigating] = useState(false);
   const [isAddressFormOpen, setIsAddressFormOpen] = useState(false);
   const [editingAddressId, setEditingAddressId] = useState<string | null>(null);
@@ -249,8 +250,10 @@ export default function CheckoutPage() {
       setAddressErrors(errors);
       return;
     }
-    setIsLoading(true);
+    setIsAddressLoading(true);
     try {
+      // Debug: Log addressForm before sending
+      console.log('Submitting addressForm:', addressForm);
       if (editingAddressId) {
         const response = await axios.put(`/api/users/address/${editingAddressId}`, addressForm, { withCredentials: true });
         if (response.data.success) {
@@ -280,7 +283,7 @@ export default function CheckoutPage() {
         description: error.response?.data?.error || "Failed to save address.",
       });
     } finally {
-      setIsLoading(false);
+      setIsAddressLoading(false);
     }
   };
 
@@ -631,8 +634,8 @@ export default function CheckoutPage() {
                     <Label htmlFor="isDefault">Set as default address</Label>
                   </div>
                   <div className="flex gap-2">
-                    <Button type="submit" disabled={isLoading || pincodeLoading} className="flex-1">
-                      {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : editingAddressId ? "Update Address" : "Add Address"}
+                    <Button type="submit" disabled={isAddressLoading || pincodeLoading} className="flex-1">
+                      {isAddressLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : editingAddressId ? "Update Address" : "Add Address"}
                     </Button>
                     <Button type="button" variant="outline" onClick={resetAddressForm} className="flex-1">Cancel</Button>
                   </div>
