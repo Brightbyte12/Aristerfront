@@ -8,7 +8,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 
 // Axios defaults
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_URL || "https://arister.onrender.com/api";
 axios.defaults.withCredentials = true;
 
 interface User {
