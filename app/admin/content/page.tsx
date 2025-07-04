@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import ContentList from "./ContentList";
 import ContentEditor from "./ContentEditor";
