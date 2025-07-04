@@ -86,8 +86,8 @@ const NewsletterAdminPage = dynamic(() => import("./newsletter/page"), { ssr: fa
 const PromotionPage = dynamic(() => import("./promotions/page"), { ssr: false });
 const CodManagement = dynamic(() => import("./settings/CodManagement"), { ssr: false });
 
-const API_BASE_URL = "https://arister.onrender.com/api"
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://arister.onrender.com/api";
+const API_BASE_URL = "https://arister.onrender.com"
+const API_URL = "https://arister.onrender.com";
 
 interface Product {
   id: string;
