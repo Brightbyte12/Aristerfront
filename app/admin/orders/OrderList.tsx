@@ -368,7 +368,7 @@ const OrderList: React.FC<OrderListProps> = ({ orders, onUpdate }) => {
   // Fetch discount and discountCode when an order is selected
   useEffect(() => {
     if (selectedOrder && selectedOrder.orderId) {
-      fetch('http://localhost:5000/api/orders/discount/' + selectedOrder.orderId)
+      fetch('https://arister.onrender.com/api/orders/discount/' + selectedOrder.orderId)
         .then(res => res.json())
         .then(data => {   
           if (data.success) {
