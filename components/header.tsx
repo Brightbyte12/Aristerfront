@@ -29,7 +29,7 @@ interface Announcement {
   created: string
 }
 
-const API_BASE_URL = "http://localhost:5000/api"
+const API_BASE_URL = "https://arister.onrender.com/api"
 
 const Header = () => {
   const pathname = usePathname()
