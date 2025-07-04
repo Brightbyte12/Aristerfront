@@ -18,7 +18,7 @@ import { useWishlist } from "@/components/wishlist-provider"
 import { useReviews } from "@/components/review-provider"
 import { useToast } from "@/hooks/use-toast"
 
-const API_BASE_URL = "http://localhost:5000/api"
+const API_BASE_URL = "https://arister.onrender.com/api"
 
 interface Product {
   id: string
