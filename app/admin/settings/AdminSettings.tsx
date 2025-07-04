@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_BASE_URL = typeof window !== 'undefined' && window.location.hostname === 'localhost'
-  ? 'https://arister.onrender.com/api'
-  : '/api';
+const API_BASE_URL = 'https://arister.onrender.com/api'
 
 const AdminSettings = () => {
   // Trending Searches State
