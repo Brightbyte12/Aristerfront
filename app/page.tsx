@@ -10,7 +10,7 @@ import { motion } from "framer-motion"
 import axios from "axios"
 import { useToast } from "@/components/ui/use-toast"
 
-const API_BASE_URL = "https://aristerfront.onrender.com/api"
+const API_BASE_URL = "https://arister.onrender.com/api"
 
 interface CategoryImage {
   category: string
