@@ -34,7 +34,7 @@ export default function ContactPage() {
   useEffect(() => {
     const fetchContactInfo = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/contact/info');
+        const response = await fetch('https://arister.onrender.com/api/contact/info');
         if (!response.ok) throw new Error('Failed to fetch contact information');
         const data = await response.json();
         setContactInfo(data);
@@ -52,7 +52,7 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/contact/message', {
+      const response = await fetch('https://arister.onrender.com/api/contact/message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
