@@ -310,11 +310,18 @@ export default function CheckoutPage() {
     try {
       const response = await axios.delete(`/api/users/address/${addressId}`, { withCredentials: true });
       if (response.data.success) {
-        setAddresses((prev) => prev.filter((addr) => addr._id !== addressId));
-        if (selectedAddress?._id === addressId) {
-          const defaultAddress = addresses.find((addr) => addr.isDefault && addr._id !== addressId);
-          setSelectedAddress(defaultAddress || addresses[0] || null);
-        }
+        setAddresses((prev) => {
+          const updated = prev.filter((addr) => addr._id !== addressId);
+          // If no addresses left, clear selectedAddress
+          if (updated.length === 0) {
+            setSelectedAddress(null);
+          } else if (selectedAddress?._id === addressId) {
+            // If deleted address was selected, pick default or first
+            const defaultAddress = updated.find((addr) => addr.isDefault);
+            setSelectedAddress(defaultAddress || updated[0]);
+          }
+          return updated;
+        });
         toast({ title: "Success", description: "Address deleted successfully." });
       }
     } catch (error: any) {
