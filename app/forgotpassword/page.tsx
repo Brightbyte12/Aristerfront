@@ -35,7 +35,12 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4 animate-fade-in">
+    <div
+      className="flex items-center justify-center min-h-screen p-4 animate-fade-in"
+      style={{
+        background: "linear-gradient(135deg, #DCD7C9 0%, #A27B5C 100%)"
+      }}
+    >
       <Card className="w-full max-w-md animate-slide-up">
         <CardHeader className="text-center">
           <CardTitle className="text-responsive-2xl">Forgot Password</CardTitle>
