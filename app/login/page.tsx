@@ -284,6 +284,19 @@ export default function LoginPage() {
             />
             {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email}</p>}
           </div>
+           <div>
+            <Label htmlFor="phone">Phone</Label>
+            <Input
+              id="phone"
+              type="tel"
+              placeholder="e.g., 9876543210"
+              required
+              value={phone}
+              onChange={handlePhoneChange}
+              className={`mt-1 h-10 sm:h-12 text-base ${errors.phone ? "border-red-500" : ""}`}
+            />
+            {errors.phone && <p className="text-sm text-red-500 mt-1">{errors.phone}</p>}
+          </div>
           <div>
             <Label htmlFor="password">Password</Label>
             <Input
@@ -297,19 +310,7 @@ export default function LoginPage() {
             />
             {errors.password && <p className="text-sm text-red-500 mt-1">{errors.password}</p>}
           </div>
-          <div>
-            <Label htmlFor="phone">Phone</Label>
-            <Input
-              id="phone"
-              type="tel"
-              placeholder="e.g., 9876543210"
-              required
-              value={phone}
-              onChange={handlePhoneChange}
-              className={`mt-1 h-10 sm:h-12 text-base ${errors.phone ? "border-red-500" : ""}`}
-            />
-            {errors.phone && <p className="text-sm text-red-500 mt-1">{errors.phone}</p>}
-          </div>
+         
           <Button
             type="submit"
             className="w-full bg-emerald-700 hover:bg-emerald-800 btn-responsive"
@@ -468,7 +469,12 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4 animate-fade-in">
+    <div
+      className="flex items-center justify-center min-h-screen p-4 animate-fade-in"
+      style={{
+        background: "linear-gradient(135deg, #DCD7C9 0%, #A27B5C 100%)"
+      }}
+    >
       <Card className="w-full max-w-md animate-slide-up">
         <CardHeader className="text-center">
           <CardTitle className="text-responsive-2xl">{getCardTitle()}</CardTitle>
